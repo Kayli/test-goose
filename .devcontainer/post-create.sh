@@ -10,8 +10,10 @@ echo 'if [ -f /workspaces/test-goose/.env ]; then set -a; source /workspaces/tes
 rm -rf ~/.config/goose
 ln -sf /workspaces/test-goose/.goose ~/.config/goose
 
-# Export API keys from goose secrets (GOOGLE_API_KEY for goose, GEMINI_API_KEY for gemini CLI)
-if [ -f /workspaces/test-goose/.goose/secrets.yaml ]; then
-    echo 'export GOOGLE_API_KEY=$(grep "GOOGLE_API_KEY:" /workspaces/test-goose/.goose/secrets.yaml | awk "{print \$2}")' >> ~/.bashrc
-    echo 'export GEMINI_API_KEY=$GOOGLE_API_KEY' >> ~/.bashrc
+# Populate goose secrets.yaml from environment variables (from --env-file .env)
+if [ -n "$GOOGLE_API_KEY" ]; then
+    echo "GOOGLE_API_KEY: $GOOGLE_API_KEY" > /workspaces/test-goose/.goose/secrets.yaml
 fi
+
+# GEMINI_API_KEY uses the same key as GOOGLE_API_KEY
+echo 'export GEMINI_API_KEY=$GOOGLE_API_KEY' >> ~/.bashrc

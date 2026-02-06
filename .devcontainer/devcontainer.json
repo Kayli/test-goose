@@ -4,6 +4,7 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
+  "runArgs": ["--env-file", ".env"],
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/git:1": {},
@@ -25,6 +26,5 @@
   "mounts": [
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"  ],
   "postCreateCommand": "bash .devcontainer/post-create.sh",
-  "forwardPorts": [],
-  "portsAttributes": {}
+  "forwardPorts": []
 }

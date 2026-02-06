@@ -1,0 +1,18 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        ".mypy_cache": true,
+        ".pytest_cache": true,
+        ".doit.db.db": true,
+        "**/__pycache__": true,
+        "goose_playground.egg-info": true
+    },
+    //"chat.disableAIFeatures": true // disables vscode copilot features
+}

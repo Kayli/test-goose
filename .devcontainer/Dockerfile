@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     wget \
     jq \
+    just \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js and npm
